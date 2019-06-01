@@ -7,37 +7,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
   %body
-    .header
-      グループを作成しました
-    .top-contents
-      .top-contents__text1
-        test-user
-      .top-contents__fontawesome
-        %i.fa.fa-edit
-        %i.fa.fa-cog
-      .top-contents__right
-        .top-contents__group
-          .top-contents__text2
-            test-group
-          .top-contents__text3
-            Member : test-user
-        .top-contents__edit-button
-          Edit
-    .main-contents
-      .main-contents__left
-        .main-contents__left-wrapper
-          = render 'groups/group'
-      .main-contents__right
-        .main-contents__right-wrapper
-          = render 'messages/message'
-        .main-contents__bottom
-          .main-contents__wrapper
-            .main-contents__message
-              .main-contents__text1 
-                type a message
-              %label.main-contents__upload-label{for: "upload-icon"}
-                %input.main-contents__upload-input{type: "file", id: "upload-icon"}
-                  %i.fa.fa-picture-o
-            .main-contents__send-button
-              .main-contents__text2
-                Send
+    = render partial: 'layouts/flash'
+    = yield
+
