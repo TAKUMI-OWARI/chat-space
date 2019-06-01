@@ -1,0 +1,45 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChatSpace
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+  %body
+    %div.header
+      グループを作成しました
+    %div.top-contents
+      %div.top-contents__text1
+        test-user
+      %div.top-contents__fontawesome
+        = link_to groups_new_path do
+          %i.fa.fa-edit
+        = link_to users_edit_path do
+          %i.fa.fa-cog
+      %div.top-contents__right
+        %div.top-contents__group
+          %div.top-contents__text2
+            test-group
+          %div.top-contents__text3
+            Member : test-user
+        %div.top-contents__edit-button
+          Edit
+    %div.main-contents
+      %div.main-contents__left
+        %div.main-contents__left-wrapper
+          = render 'groups/group'
+      %div.main-contents__right
+        %div.main-contents__right-wrapper
+          = render 'messages/message'
+        %div.main-contents__bottom
+          %div.main-contents__wrapper
+            %div.main-contents__message
+              %div.main-contents__text1 
+                type a message
+              %label.main-contents__upload-label{for: "upload-icon"}
+                %input.main-contents__upload-input{type: "file", id: "upload-icon"}
+                  %i.fa.fa-picture-o
+            %div.main-contents__send-button
+              %div.main-contents__text2
+                Send
