@@ -1,4 +1,5 @@
 .chat {
+  float: right;
   width: calc(100% - 300px);
   .header {
     box-sizing: border-box;
@@ -12,7 +13,7 @@
         margin-top: 35px;
       }
       &__members {
-        //@include flexbox;
+        display: flex;
         color: $light_gray;
         font-size: 12px;
         margin-top: 15px;
@@ -41,7 +42,8 @@
     background-color: #FAFAFA;
     box-sizing: border-box;
     padding: 46px 40px 0;
-    height: calc(100% - 100px - 90px);
+    height: calc(100vh - 100px - 90px);
+    overflow: auto;
     .message {
       .upper-message {
         display: flex;
@@ -71,12 +73,13 @@
     background-color: #DDDDDD;
     box-sizing: border-box;
     height: 90px;
-    padding: 20px 50px 20px 40px;
+    padding: 20px 40px 20px 40px;
     &__message {
       border: none;
       float: left;
+      padding-left: 10px;
       height: 50px;
-      width: calc(100% - 150px);
+      width: calc(100% - 160px);
     }
     &__mask {
       background-color: $white;
