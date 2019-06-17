@@ -1,22 +1,23 @@
+= render partial: 'shared/side_bar'
 .chat
   .header
     .left-header
       .left-header__title
+        = @group.name
       .left-header__members
+        Member：
+        - @group.users.each do |user|
+          = user.name + ' '
     .right-header
       .right-header__button
+        Edit
   .messages
-    .message
-      .upper-message
-        .upper-message__user-name
-        .upper-message__date
-      .lower-message
-        .lower-message__content
+    = render partial: 'message', collection: @messages
   .form
-    .form__message
-      type a message
-    %label.form__mask{for: "upload-icon"}
-      %input.form__mask__image{type: "file", id: "upload-icon"}
-        %i.fa.fa-picture-o
-    .form__submit
-      Send
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'

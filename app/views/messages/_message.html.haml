@@ -1,14 +1,11 @@
-%div.main-contents__member1
-  %div.main-contents__member-name1
-    test-user
-  %div.main-contents__time1
-    2019/02/13(Wed) 17:50:36
-%div.main-contents__member-comment1
-  こんにちは！
-%div.main-contents__member2
-  %div.main-contents__member-name2
-    test-user
-  %div.main-contents__time2
-    2019/02/13(Wed) 17:50:50
-%div.main-contents__member-comment2
-  さようなら！
+.message
+  .upper-message
+    .upper-message__user-name
+      = message.user.name
+    .upper-message__date
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .lower-message
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
