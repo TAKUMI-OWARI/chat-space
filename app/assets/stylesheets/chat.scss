@@ -4,9 +4,12 @@
   .header {
     box-sizing: border-box;
     height: 100px;
+    width: 100%;
     padding: 0 40px;
+    overflow-x: auto;
     .left-header {
       float: left;
+      height: 100px;
       &__title {
         color: #333;
         font-size: 20px;
@@ -17,7 +20,7 @@
         color: $light_gray;
         font-size: 12px;
         margin-top: 15px;
-        .member {
+        &__member {
           display: inline-block;
           padding-right: 5px;
         }
@@ -26,16 +29,17 @@
     .right-header {
       border: 1px solid $light_blue;
       color: $light_blue;
-      float: right;
+      position: absolute;
+      right: 40px;
       height: 40px;
       line-height: 40px;
       margin-top: 28px;
       padding: 0 20px;
-      &__button {
-        color: $light_blue;
-        text-decoration: none;
-      }
+      text-decoration: none;
     }
+  }
+  .header::-webkit-scrollbar {
+    display: none;
   }
 
   .messages {
@@ -71,6 +75,9 @@
         }
       }
     }
+  }
+  .messages::-webkit-scrollbar {
+    display: none;
   }
 
   .form {
