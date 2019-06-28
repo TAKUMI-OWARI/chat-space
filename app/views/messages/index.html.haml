@@ -4,13 +4,13 @@
     .left-header
       .left-header__title
         = @group.name
-      .left-header__members
+      %ul.left-header__members
         Member：
         - @group.users.each do |user|
-          = user.name + ' '
-    .right-header
-      .right-header__button
-        Edit
+          %li.left-header__members__member
+            = user.name
+    = link_to "Edit", edit_group_path(@group.id), class: "right-header"
+
   .messages
     = render partial: 'message', collection: @messages
   .form
