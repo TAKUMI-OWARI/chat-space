@@ -9,9 +9,7 @@
         - @group.users.each do |user|
           %li.left-header__members__member
             = user.name
-    %a.right-header{href: "/groups/#{@group.id}/edit"}
-      .right-header__edit-btn
-        Edit
+    = link_to "Edit", edit_group_path(@group.id), class: "right-header"
 
   .messages
     = render partial: 'message', collection: @messages
