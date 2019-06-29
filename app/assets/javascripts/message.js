@@ -49,7 +49,6 @@ $(function(){
   $(function(){
     if(location.href.match(/\/groups\/\d+\/messages/)){
       setInterval(reloadMessages, 1000);
-    } else {
     }
   });
   function reloadMessages() {
@@ -74,7 +73,6 @@ $(function(){
           $('.messages').append(html);
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
         });
-      } else if(messages.length == 0){
       }
     })
     .fail(function() {
