@@ -47,17 +47,17 @@ var add_user_list = $(".chat-group-users.js-add-user");
 
     .done(function(users) {
       $("#user-search-result").empty();
-        if (users.length !== 0 && input.length !== 0) {
-          users.forEach(function(user){
-            appendUser(user);
-          });
-        }
-        else if (input.length == 0) {
-          $("#user-search-result").find('.chat-group-user.clearfix').remove();
-        }
-        else {
-          appendErrorMessageToHTML("一致するユーザーが見つかりません");
-        }
+      if (users.length !== 0 && input.length !== 0) {
+        users.forEach(function(user){
+          appendUser(user);
+        });
+      }
+      else if (input.length == 0) {
+        $("#user-search-result").find('.chat-group-user.clearfix').remove();
+      }
+      else {
+        appendErrorMessageToHTML("一致するユーザーが見つかりません");
+      }
     })
     .fail(function() {
       alert('ユーザー検索に失敗しました');
